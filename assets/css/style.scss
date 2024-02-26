@@ -128,6 +128,7 @@ header {
       li {
         padding: 0 14px;
         a {
+          padding: 0 !important;
           font-weight: 600;
           color: $main;
           font-size: 14px;
@@ -166,7 +167,7 @@ header {
         width: 100%;
         background: $white;
         flex-direction: column;
-        height: calc(50vh - 100px);
+        height: calc(60vh - 108px);
         justify-content: flex-start;
         padding: 32px 0;
         transition: $transition;
@@ -470,71 +471,56 @@ main {
   font-weight: 700;
   color: $second;
 }
-.findFriends {
-  padding: 40px 0;
-  background-position: center;
-  position: relative;
-  height: 500px;
-  background-image: url(../images/find.webp);
-  isolation: isolate;
-  background-size: cover;
-  @media (max-width: 576px) {
-    height: auto;
+.download-app {
+  width: 100%;
+  padding: 30px 0;
+  height: 400px;
+  background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.753), #000000c2),
+    url(../images/contact.jpg);
+  background-size: contain;
+  overflow: hidden;
+  @media (max-width: 768px) {
+    height: 650px;
+    .app-imgs {
+      margin-top: 60px;
+    }
   }
-  &::after {
-    position: absolute;
-    content: "";
-    width: 100%;
+  .container {
     height: 100%;
-    top: 0;
-    left: 0;
-    z-index: 0;
-    background: #006416d4;
-  }
-  .row {
-    z-index: 1;
-    position: relative;
-  }
-  .img {
-    width: 100%;
-    @include centerFlex();
-    justify-content: end;
-    @media (max-width: 576px) {
-      padding-top: 24px;
-    }
-    img {
-      width: 65%;
-      @media (max-width: 576px) {
-        width: 80%;
+    .row {
+      height: 100%;
+      .img {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        position: relative;
+        img {
+          width: 52%;
+          @media (max-width: 576px) {
+            width: 62%;
+          }
+        }
       }
-    }
-    @media (max-width: 576px) {
-      justify-content: center;
-    }
-  }
-  .content {
-    padding: 40px 0;
-    @media (max-width: 576px) {
-      padding: 20px 0;
-    }
-    h2 {
-      color: $white;
-      font-weight: 600;
-      line-height: 65px;
-      font-size: 42px;
-      @media (max-width: 576px) {
-        line-height: 46px;
-        font-size: 28px;
+      h3 {
+        color: $white;
+        font-weight: 600;
+        font-size: 48px;
+        line-height: 72px;
+        margin-bottom: 12px;
+        @media (max-width: 450px) {
+          font-size: 42px;
+          line-height: 62px;
+        }
       }
-    }
-    .download_btns {
-      display: flex;
-      gap: 16px;
-      margin-top: 32px;
-      img {
-        height: 52px;
-        @media (max-width: 576px) {
-          height: 44px;
+      p {
+        color: $white;
+      }
+      .btns {
+        margin-top: 16px;
+        display: flex;
+        gap: 24px;
+        img {
+          max-height: 48px;
         }
       }
     }
@@ -819,6 +805,99 @@ footer {
     align-items: center;
     &:nth-child(even) {
       flex-direction: row-reverse;
+    }
+  }
+}
+.features {
+  position: relative;
+  padding: 60px 0;
+  .toop {
+    position: absolute;
+    right: 40px;
+    top: 100px;
+    animation: swing-right 5s linear infinite;
+    @media (max-width: 450px) {
+      top: 20px;
+    }
+  }
+  .bottom {
+    position: absolute;
+    left: 40px;
+    bottom: 0;
+    animation: swing-left 5s linear infinite;
+  }
+  @keyframes swing-left {
+    0% {
+      left: 40px;
+    }
+    25% {
+      left: 60px;
+    }
+    50% {
+      left: 80px;
+    }
+    75% {
+      left: 60px;
+    }
+    100% {
+      left: 40px;
+    }
+  }
+  @keyframes swing-right {
+    0% {
+      right: 40px;
+    }
+    25% {
+      right: 60px;
+    }
+    50% {
+      right: 80px;
+    }
+    75% {
+      right: 60px;
+    }
+    100% {
+      right: 40px;
+    }
+  }
+  .title {
+    color: $main;
+    font-weight: 600;
+    margin-bottom: 48px;
+  }
+  .feature-card {
+    box-shadow: $shadow;
+    background: $white;
+    height: 100%;
+    padding: 24px 16px;
+    border-radius: 16px;
+    @include centerFlex();
+    flex-direction: column;
+    position: relative;
+    z-index: 9;
+    .icon {
+      @include centerFlex();
+      background: $second;
+      border-radius: 16px;
+      height: 78px;
+      width: 78px;
+      margin-bottom: 28px;
+      img {
+        max-height: 40px;
+      }
+    }
+    h4 {
+      color: $main;
+      font-weight: 600;
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+    p {
+      margin: 0;
+      text-align: center;
+      color: $main;
+      line-height: 24px;
+      font-size: 14px;
     }
   }
 }
